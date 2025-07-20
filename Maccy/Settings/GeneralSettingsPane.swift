@@ -94,6 +94,22 @@ struct GeneralSettingsPane: View {
         .foregroundStyle(.gray)
         .controlSize(.small)
       }
+      
+      Settings.Section(
+          bottomDivider: true,
+          label: { Text("Privacy", tableName: "GeneralSettings") }
+        ) {
+          Defaults.Toggle(key: .privacyMode) {
+            Text("PrivacyMode", tableName: "GeneralSettings")
+          }
+          .onChange(refreshModifiers)
+          .fixedSize()
+          
+          Text("PrivacyExplain", tableName: "GeneralSettings")
+          .fixedSize(horizontal: false, vertical: true)
+          .foregroundStyle(.gray)
+          .controlSize(.small)
+        }
 
       Settings.Section(title: "") {
         if let notificationsURL = notificationsURL {
