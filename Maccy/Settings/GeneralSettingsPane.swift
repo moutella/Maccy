@@ -94,7 +94,7 @@ struct GeneralSettingsPane: View {
         .foregroundStyle(.gray)
         .controlSize(.small)
       }
-      
+
       Settings.Section(
           bottomDivider: true,
           label: { Text("Privacy", tableName: "GeneralSettings") }
@@ -104,7 +104,7 @@ struct GeneralSettingsPane: View {
           }
           .onChange(refreshModifiers)
           .fixedSize()
-          
+
           Text("PrivacyExplain", tableName: "GeneralSettings")
           .fixedSize(horizontal: false, vertical: true)
           .foregroundStyle(.gray)
