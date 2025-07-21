@@ -19,5 +19,5 @@
 "Mixed" = "Mixed";
 "NotificationsAndSounds" = "Notifications and sounds 􀱁";
 "Privacy" = "Privacy:";
-"PrivacyMode" = "Privacy Mode";
-"PrivacyExplain" = "Maccy won't appear during screen share, but it will also disable previews.";
+"PrivacyMode" = "Private Mode";
+"PrivacyExplain" = "Maccy won't appear during screen share.";
