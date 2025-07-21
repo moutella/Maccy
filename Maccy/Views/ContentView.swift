@@ -1,5 +1,6 @@
 import SwiftData
 import SwiftUI
+import Defaults
 
 struct ContentView: View {
   @State private var appState = AppState.shared
@@ -66,6 +67,11 @@ struct ContentView: View {
         popover.animates = false
         // Prevent NSPopover from becoming first responder.
         popover.behavior = .semitransient
+        if Defaults[.privacyMode] {
+          popover.contentViewController?.view.window?.sharingType = .none
+        } else {
+          popover.contentViewController?.view.window?.sharingType = .readOnly
+        }
       }
     }
   }

@@ -25,9 +25,8 @@ class HistoryItemDecorator: Identifiable, Hashable {
       if isSelected {
         Self.previewThrottler.throttle {
           Self.previewThrottler.minimumDelay = 0.2
-          if Defaults[.privacyMode] == false {
-            self.showPreview = true
-          }
+          self.showPreview = true
+          
         }
       } else {
         Self.previewThrottler.cancel()
