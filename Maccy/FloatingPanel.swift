@@ -31,7 +31,6 @@ class FloatingPanel<Content: View>: NSPanel, NSWindowDelegate {
 
     self.statusBarButton = statusBarButton
     self.identifier = NSUserInterfaceItemIdentifier(identifier)
-    self.sharingType = .none
 
     Defaults[.windowSize] = contentRect.size
     delegate = self
@@ -75,6 +74,12 @@ class FloatingPanel<Content: View>: NSPanel, NSWindowDelegate {
     orderFrontRegardless()
     makeKey()
     isPresented = true
+
+    if isScreenBeingWatched() {
+      self.sharingType = .none
+    } else {
+      self.sharingType = .readOnly
+    }
 
     if popupPosition == .statusItem {
       DispatchQueue.main.async {
