@@ -10,9 +10,11 @@ struct ListItemView<Title: View>: View {
   var shortcuts: [KeyShortcut]
   var isSelected: Bool
   var help: LocalizedStringKey?
+  var isPrivacySensitive: Bool
   @ViewBuilder var title: () -> Title
 
   @Default(.showApplicationIcons) private var showIcons
+  @Default(.privacySensitiveMode) private var privacySensitiveMode
   @Environment(AppState.self) private var appState
   @Environment(ModifierFlags.self) private var modifierFlags
 
@@ -81,5 +83,18 @@ struct ListItemView<Title: View>: View {
       }
     }
     .help(help ?? "")
+    .privacySensitive(
+      isRedacted()
+    ).redacted(reason: .privacy)
+  }
+
+  private func isRedacted() -> Bool {
+    if isSelected || !isPrivacySensitive {
+      return false
+    }
+    if privacySensitiveMode {
+      return true
+    }
+    return false
   }
 }

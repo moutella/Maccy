@@ -14,7 +14,8 @@ struct HistoryItemView: View {
       accessoryImage: item.thumbnailImage != nil ? nil : ColorImage.from(item.title),
       attributedTitle: item.attributedTitle,
       shortcuts: item.shortcuts,
-      isSelected: item.isSelected
+      isSelected: item.isSelected,
+      isPrivacySensitive: true
     ) {
       Text(verbatim: item.title)
     }

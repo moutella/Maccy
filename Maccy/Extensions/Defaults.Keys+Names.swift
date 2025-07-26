@@ -60,4 +60,5 @@ extension Defaults.Keys {
   static let showApplicationIcons = Key<Bool>("showApplicationIcons", default: false)
   static let privacyMode = Key<Bool>("privacyMode", default: true)
   static let displayLinkDetected = Key<Bool>("displayLinkDetected", default: false)
+  static let privacySensitiveMode = Key<Bool>("privacySensitiveMode", default: true)
 }

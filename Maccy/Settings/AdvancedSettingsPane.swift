@@ -53,6 +53,11 @@ struct AdvancedSettingsPane: View {
         .fixedSize(horizontal: false, vertical: true)
         .foregroundStyle(.gray)
         .controlSize(.small)
+
+      Defaults.Toggle(key: .privacySensitiveMode) {
+        Text("PrivacySensitiveMode", tableName: "AdvancedSettings")
+      }.disabled(Defaults[.displayLinkDetected])
+
     }
     .frame(minWidth: 350, maxWidth: 450)
     .padding()
